@@ -1,0 +1,12 @@
+table {
+	margin: auto;
+}
+
+.menu td {
+	text-align: right;
+	padding-bottom: 2%;
+}
+
+span {
+	text-align: center;
+}

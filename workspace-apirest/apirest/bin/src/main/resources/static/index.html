@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>pramos@StarWars</title>
+<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body>
+	<span><h1>Add or add not, there is no try!</h1></span>
+
+	<!-- Formulário -->
+	<div>
+		<form action="/api/planeta" th:action="@{/api/planeta}"
+			th:object="planeta" method="get">
+			<table class="menu">
+				<tr>
+					<td><span>Nome: </span><input type="text" name="nome"
+						th:field="*{nome}" required></td>
+				</tr>
+				<tr>
+					<td><span>Clima: </span><input type="text" name="clima"
+						th:field="*{clima}"></td>
+				</tr>
+				<tr>
+					<td><span>Terreno: </span><input type="text" name="terreno"
+						th:field="*{terreno}"></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Criar!" style="width: 74%"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+	<hr style="width: 75%" />
+</body>
+</html>
