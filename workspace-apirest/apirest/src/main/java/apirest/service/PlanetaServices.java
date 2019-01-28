@@ -44,7 +44,7 @@ public class PlanetaServices {
 			// obter numAparicoes da swapi;
 			int numAparicoes = wrapper.getBody().getResults().get(0).getFilms().size();
 
-			// planeta já adicionado?
+			// planeta ainda não adicionado?
 			if (findByNome(nome) == null) {
 				// criar novo planeta com numAparicoes;
 				novoPlaneta.setNumAparicoes(numAparicoes);
