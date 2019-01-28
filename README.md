@@ -1,6 +1,11 @@
 # API Rest
 Exemplo de API que contém os dados dos planetas da franquia StarWars.
 
+## Review
+1. Auterando GenerationType do ID da entidade Planeta para permitir que o Insert no banco de dados gere automaticamente um novo ID em Inserts.
+Antes da alteração, ao fazer inserts especificando colunas mas omitindo a coluna ID, a consulta retornava erro, indicando que o ID não poderia ser NULL. 
+Com a correção esse erro foi solucionado, mas ainda recebo erro ao fazer um INSERT sem especificar as colunas e omitindo um valor para ID - Revisar.
+
 ##
 Requisitos:
 - Os planetas devem ser obtidos do banco da aplicação;
