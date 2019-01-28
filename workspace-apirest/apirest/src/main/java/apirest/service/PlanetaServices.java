@@ -24,8 +24,6 @@ public class PlanetaServices {
 	}
 
 	// Save;
-	// add consulta ao swapi, passar numAparicoes ao planeta CASO exista na api
-	// tratar CASO planeta ja exista (?)
 	public Planeta save(Planeta planeta) throws Exception {
 		String nome = planeta.getNome();
 		String clima = planeta.getClima();
@@ -36,24 +34,17 @@ public class PlanetaServices {
 		SwapiConn conn = new SwapiConn();
 		ResponseEntity<RequestWrapper> wrapper = conn.getPlanetByName(nome);
 
-		// wrapper nulo?;
-		if (wrapper == null) {
-			// salvar novoPlaneta SEM numAparicoes;
-			return planetaRepository.save(novoPlaneta);
-		} else {
-			// obter numAparicoes da swapi;
-			int numAparicoes = wrapper.getBody().getResults().get(0).getFilms().size();
-
-			// planeta ainda não adicionado?
-			if (findByNome(nome) == null) {
-				// criar novo planeta com numAparicoes;
+		if (findByNome(nome) == null) {
+			if (wrapper == null) {
+				return planetaRepository.save(novoPlaneta); // SEM numAparicoes
+			} else {
+				int numAparicoes = wrapper.getBody().getResults().get(0).getFilms().size();
 				novoPlaneta.setNumAparicoes(numAparicoes);
 
-				// salvar novoPlaneta COM numAparicoes;
-				return planetaRepository.save(novoPlaneta);
-			} else {
-				throw new IllegalArgumentException(">>>>> Já adicionado, esse planeta foi!");
+				return planetaRepository.save(novoPlaneta); // COM numAparicoes
 			}
+		} else {
+			throw new IllegalArgumentException(">>>>> Já adicionado, esse planeta foi!");
 		}
 	}
 
