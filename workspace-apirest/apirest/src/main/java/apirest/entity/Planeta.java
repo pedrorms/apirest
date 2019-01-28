@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 @Entity
 public class Planeta {
@@ -16,16 +15,13 @@ public class Planeta {
 	private Long id;
 
 	@NotBlank
-	@Size(max = 30)
-	@Column(name = "nome", length = 30, nullable = false)
+	@Column(name = "nome", nullable = false)
 	private String nome;
 
-	@Size(max = 30)
-	@Column(name = "clima", length = 30)
+	@Column(name = "clima")
 	private String clima;
 
-	@Size(max = 30)
-	@Column(name = "terreno", length = 30)
+	@Column(name = "terreno")
 	private String terreno;
 
 	@Column(name = "numAparicoes")
