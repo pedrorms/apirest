@@ -2,13 +2,9 @@
 Exemplo de API que contém os dados dos planetas da franquia StarWars.
 
 ## Review
-1. Auterando GenerationType do ID da entidade Planeta para permitir que o Insert no banco de dados gere automaticamente um novo ID em 
-Inserts. Antes da alteração, ao fazer inserts especificando colunas mas omitindo a coluna ID, a consulta retornava erro, indicando que o ID não poderia ser NULL. 
-Com a correção esse erro foi solucionado, mas ainda recebo erro ao fazer um INSERT sem especificar as colunas e omitindo um valor para ID - Revisar.
+**1. Auterando GenerationType do ID da entidade Planeta permitindo que INSERTs no banco de dados gerem automaticamente um novo ID.** - Antes da alteração, ao fazer inserts especificando colunas mas omitindo a coluna ID a consulta retornava erro, indicando que o ID não poderia ser NULL. Com a correção esse problema foi resolvido, mas ainda recebo erro ao fazer um INSERT **SEM especificar as colunas** e omitindo um valor para ID. (Revisar)
 
-2. Priorizando verificação de planeta ja adicionado sobre a verificação do wrapper em PlanetaServices > save(). Antes da correção, seria 
-possivel salvar varios planetas com o mesmo nome, desde que esses não estivessem presentes na API. Com a correção também se evita de 
-instanciar a variavel numAparicoes sem necessidade.
+**2. Priorizando verificação de planeta ja adicionado sobre a verificação do wrapper em PlanetaServices > save().** - Antes da correção, era possivel salvar vários planetas com o mesmo nome, desde que esses não estivessem presentes na API. A correção também evita que a variável numAparicoes seja instanciada sem necessidade.
 
 ##
 Requisitos:
